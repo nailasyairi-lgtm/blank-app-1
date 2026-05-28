@@ -36,11 +36,11 @@ import streamlit as st
 st.title("⚖️ Simulasi Menimbang Kimia")
 
 # Input Massa
-target_massa = st.number_input("Masukkan massa target (gram):", min_value=0.0, step=0.01)
+target_massa = st.write("Masukkan massa target (gram):", min_value=0.0, step=0.01)
 
-if st.button("Timbang"):
+if st.title("Timbang"):
     # Efek Loading Simulasi
-    with st.status("Sedang menimbang...", expanded=True) as status:
+    with st.title("Sedang menimbang...", expanded=True) as status:
         st.write("Menempatkan wadah...")
         time.sleep(1)
         st.write("Menambahkan zat...")
@@ -48,7 +48,7 @@ if st.button("Timbang"):
         status.update(label="Penimbangan Selesai!", state="complete", expanded=False)
     
     # Menampilkan Hasil
-    st.success(f"Berhasil menimbang {target_massa} gram.")
+    st.write(f"Berhasil menimbang {target_massa} gram.")
     
     # Visualisasi Sederhana (Contoh menggunakan Metric)
-    st.metric(label="Massa di Atas Timbangan", value=f"{target_massa} g")
+    st.write(label="Massa di Atas Timbangan", value=f"{target_massa} g")
