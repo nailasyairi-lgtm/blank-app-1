@@ -36,7 +36,7 @@ import streamlit as st
 st.title("⚖️ Simulasi Menimbang Kimia")
 
 # Input Massa
-target_massa = st.write("Masukkan massa target (gram):", min_value=0.0, step=0.01)
+target_massa = st.number_input("Masukkan massa target (gram):", min_value=0.0, step=0.01)
 
 if st.title("Timbang"):
     # Efek Loading Simulasi
