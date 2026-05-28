@@ -31,7 +31,7 @@ if menu == "Titrasi":
         st.info(
             "Larutan berubah warna menjadi pink"
         )
-mport streamlit as st
+import streamlit as st
 import time
 
 st.title("⚖️ Simulasi Menimbang Kimia")
