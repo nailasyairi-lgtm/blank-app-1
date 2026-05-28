@@ -53,7 +53,7 @@ if st.title("Timbang"):
     # Visualisasi Sederhana (Contoh menggunakan Metric)
     st.metric(label="Massa di Atas Timbangan", value=f"{target_massa} g")
     import streamlit as st
-
+import streamlit as st
 st.title("Simulasi Menimbang Kimia")
 
 # Input target dan massa saat ini
