@@ -1,3 +1,4 @@
+import streamlit as st
 menu = st.selectbox(
     "Pilih Praktikum",
     ["Menimbang", "Titrasi"]
