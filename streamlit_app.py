@@ -63,9 +63,10 @@ for i in range (x):
     if st.button("Timbang"):    
     
     # Logika pengecekan
-    if massa_timbangan == target_massa:
-        st.write("Massa sesuai")
-        st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
+    if st.button("Timbang", key="timbang_1"):
+        if massa_timbangan == target_massa:
+          st.write("Berhasil")  
+    st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
     else:
         # Menangani penimbangan yang salah
         selisih = abs(massa_timbangan - target_massa)
