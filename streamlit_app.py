@@ -52,3 +52,24 @@ if st.title("Timbang"):
     
     # Visualisasi Sederhana (Contoh menggunakan Metric)
     st.metric(label="Massa di Atas Timbangan", value=f"{target_massa} g")
+    import streamlit as st
+
+st.title("Simulasi Menimbang Kimia")
+
+# Input target dan massa saat ini
+target_massa = 0.03
+massa_timbangan = st.number_input("Masukkan massa (gram):", min_value=0.0, step=0.01, format="%.2f")
+
+if st.button("Timbang"):
+    # Logika pengecekan
+    if massa_timbangan == target_massa:
+        st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
+    else:
+        # Menangani penimbangan yang salah
+        selisih = abs(massa_timbangan - target_massa)
+        st.error(f"Penimbangan Salah! Massa saat ini: {massa_timbangan} g.")
+        
+        if massa_timbangan < target_massa:
+            st.warning(f"Kurang {selisih:.2f} gram lagi.")
+        else:
+            st.warning(f"Kelebihan {selisih:.2f} gram.")
