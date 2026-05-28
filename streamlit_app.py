@@ -64,10 +64,10 @@ for i in range (x):
         st.write("Tombol ditekan")
     # Logika pengecekan
     if st.button("Timbang", key="timbang_1"):
-        if massa_timbangan == target_massa:
+    if massa_timbangan == target_massa:
           st.write("Berhasil")  
     st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
-         else:
+    else:
         # Menangani penimbangan yang salah
         selisih = abs(massa_timbangan - target_massa)
         st.error(f"Penimbangan Salah! Massa saat ini: {massa_timbangan} g.")
