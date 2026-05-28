@@ -69,7 +69,7 @@ for i in range (x):
     st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
     
         # Menangani penimbangan yang salah
-        if True:
+        
         selisih = abs(x - y)
         st.error(f"Penimbangan Salah! Massa saat ini: {massa_timbangan} g.")
         
