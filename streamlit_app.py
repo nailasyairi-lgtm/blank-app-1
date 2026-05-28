@@ -64,6 +64,7 @@ for i in range (x):
     
     # Logika pengecekan
     if massa_timbangan == target_massa:
+        st.write("Massa sesuai")
         st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
     else:
         # Menangani penimbangan yang salah
