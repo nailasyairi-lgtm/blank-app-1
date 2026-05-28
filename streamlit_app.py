@@ -67,7 +67,7 @@ for i in range (x):
         if massa_timbangan == target_massa:
           st.write("Berhasil")  
     st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
-            else:
+    else:
         # Menangani penimbangan yang salah
         selisih = abs(massa_timbangan - target_massa)
         st.error(f"Penimbangan Salah! Massa saat ini: {massa_timbangan} g.")
