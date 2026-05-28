@@ -1,4 +1,7 @@
 import streamlit as st
+st.title("🧪 VirtualChem Lab")
+
+st.write("Simulasi Praktikum Kimia Virtual")
 menu = st.selectbox(
     "Pilih Praktikum",
     ["Menimbang", "Titrasi"]
