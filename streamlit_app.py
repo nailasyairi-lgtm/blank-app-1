@@ -31,6 +31,24 @@ if menu == "Titrasi":
         st.info(
             "Larutan berubah warna menjadi pink"
         )
+from flask import Flask, render_template
 
-</body>
-</html>
+app = Flask(_name_)
+
+# Home
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# Halaman simulasi menimbang
+@app.route('/timbang')
+def timbang():
+    return render_template('timbang.html')
+
+# Halaman simulasi titrasi
+@app.route('/titrasi')
+def titrasi():
+    return render_template('titrasi.html')
+
+if _name_ == '_main_':
+    app.run(debug=True)
