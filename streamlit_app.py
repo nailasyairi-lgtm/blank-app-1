@@ -31,37 +31,25 @@ if menu == "Titrasi":
         st.info(
             "Larutan berubah warna menjadi pink"
         )
-import streamlit as st
+mport streamlit as st
 import time
 
-st.title("🧪 VirtualChem Lab: Pro")
+st.title("⚖️ Simulasi Menimbang Kimia")
 
-# Sidebar untuk pengaturan
-with st.sidebar:
-    st.header("Pengaturan Alat")
-    kapasitas_max = st.number_input("Kapasitas Max (g)", value=100)
+# Input Massa
+target_massa = st.number_input("Masukkan massa target (gram):", min_value=0.0, step=0.01)
 
-st.subheader("Simulasi Menimbang Analitik")
-
-# Inisialisasi state untuk tombol Tare
-if 'berat_wadah' not in st.session_state:
-    st.session_state.berat_wadah = 0.0
-
-col1, col2 = st.columns(2)
-
-with col1:
-    massa_input = st.number_input("Masukkan massa zat (gram)", min_value=0.0, step=0.01)
+if st.button("Timbang"):
+    # Efek Loading Simulasi
+    with st.status("Sedang menimbang...", expanded=True) as status:
+        st.write("Menempatkan wadah...")
+        time.sleep(1)
+        st.write("Menambahkan zat...")
+        time.sleep(1)
+        status.update(label="Penimbangan Selesai!", state="complete", expanded=False)
     
-    if st.button("Timbang"):
-        with st.spinner('Menimbang...'):
-            time.sleep(0.5) # Animasi loading
-            total = massa_input + st.session_state.berat_wadah
-            st.success(f"Berhasil menimbang: {massa_input} gram")
-st.metric(label="Display Timbangan", value=f"{total} g")
-
-with col2:
-    if st.button("Tare (Nolkan)"):
-        st.session_state.berat_wadah = 0.0
-        st.rerun()
+    # Menampilkan Hasil
+    st.success(f"Berhasil menimbang {target_massa} gram.")
     
-    st.info("Tips: Pastikan pintu kaca timbangan tertutup untuk akurasi tinggi.")
+    # Visualisasi Sederhana (Contoh menggunakan Metric)
+    st.metric(label="Massa di Atas Timbangan", value=f"{target_massa} g")
