@@ -32,7 +32,6 @@ if menu == "Titrasi":
             "Larutan berubah warna menjadi pink"
         )
 import streamlit as st
-import time
 
 st.title("⚖️ Simulasi Menimbang Kimia")
 
