@@ -51,4 +51,4 @@ if st.title("Timbang"):
     st.write(f"Berhasil menimbang {target_massa} gram.")
     
     # Visualisasi Sederhana (Contoh menggunakan Metric)
-    st.write(label="Massa di Atas Timbangan", value=f"{target_massa} g")
+    st.metric(label="Massa di Atas Timbangan", value=f"{target_massa} g")
