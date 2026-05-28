@@ -59,9 +59,9 @@ st.title("Simulasi Menimbang Kimia")
 # Input target dan massa saat ini
 target_massa = 0.03
 massa_timbangan = st.number_input("Masukkan massa (gram):", min_value=0.0, step=0.01, format="%.2f")
-for i in range (5):
-if st.button("Timbang", key=f"timbang_{i}"):
-    st.write(f"Tombol ke-{i} ditekan")
+for idx in range (5):
+if st.button("Timbang", key=f"timbang_{idx}"):
+    st.write(f"Tombol ke-{idx} ditekan")
     # Logika pengecekan
     if massa_timbangan == target_massa:
         st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
