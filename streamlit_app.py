@@ -40,7 +40,7 @@ target_massa = st.number_input("Masukkan massa target (gram):", min_value=0.0, s
 
 if st.title("Timbang"):
     # Efek Loading Simulasi
-    with st.title("Sedang menimbang...", expanded=True) as status:
+    with st.status("Sedang menimbang...", expanded=True) as status:
         st.write("Menempatkan wadah...")
         time.sleep(1)
         st.write("Menambahkan zat...")
