@@ -32,48 +32,101 @@ if menu == "Titrasi":
             "Larutan berubah warna menjadi pink"
         )
 import streamlit as st
-import time
-st.title("⚖️ Simulasi Menimbang Kimia")
+import random
 
-# Input Massa
-target_massa = st.number_input("Masukkan massa target (gram):", min_value=0.0, step=0.01)
+st.set_page_config(layout="wide")
 
-if st.title("Timbang"):
-    # Efek Loading Simulasi
-    with st.status("Sedang menimbang...", expanded=True) as status:
-        st.write("Menempatkan wadah...")
-        time.sleep(1)
-        st.write("Menambahkan zat...")
-        time.sleep(1)
-        status.update(label="Penimbangan Selesai!", state="complete", expanded=False)
-    
-    # Menampilkan Hasil
-    st.write(f"Berhasil menimbang {target_massa} gram.")
-    
-    # Visualisasi Sederhana (Contoh menggunakan Metric)
-    st.metric(label="Massa di Atas Timbangan", value=f"{target_massa} g")
-    import streamlit as st
-import streamlit as st
-st.title("Simulasi Menimbang Kimia")
+st.title("⚗️ Simulasi Menimbang Zat")
 
-# Input target dan massa saat ini
-target_massa = 0.03
-massa_timbangan = st.number_input("Masukkan massa (gram):", min_value=0.0, step=0.01, format="%.2f")
-for i in range (x):
-    if st.button("Timbang", key="timbang_1"):    
-        st.write("Tombol ditekan")
-    # Logika pengecekan
-    if st.button("Timbang", key="timbang_1"):
-        if massa_timbangan == target_massa:
-          st.write("Berhasil")  
-    st.success(f"Penimbangan Selesai! Berhasil menimbang {massa_timbangan} gram.")
-    
-        # Menangani penimbangan yang salah
-        
-        selisih = abs(x - y)
-        st.error(f"Penimbangan Salah! Massa saat ini: {massa_timbangan} g.")
-        
-        if massa_timbangan < target_massa:
-            st.warning(f"Kurang {selisih:.2f} gram lagi.")
-        else:
-            st.warning(f"Kelebihan {selisih:.2f} gram.")
+# ======================
+# CSS biar mirip lab
+# ======================
+
+st.markdown("""
+<style>
+.lab-container{
+    background-color:#eef3f7;
+    height:500px;
+    border-radius:10px;
+    position:relative;
+}
+
+.balance{
+    position:absolute;
+    left:120px;
+    bottom:80px;
+    width:180px;
+    height:120px;
+    background:#d9d9d9;
+    border-radius:10px;
+    text-align:center;
+    padding-top:10px;
+    box-shadow:2px 2px 10px gray;
+}
+
+.screen{
+    background:black;
+    color:lime;
+    width:100px;
+    margin:auto;
+    padding:8px;
+    border-radius:5px;
+    font-size:20px;
+}
+
+.beaker{
+    position:absolute;
+    left:500px;
+    bottom:80px;
+    width:80px;
+    height:100px;
+    border:4px solid #444;
+    border-top:none;
+    background:rgba(0,150,255,0.3);
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ======================
+# Pilihan zat
+# ======================
+
+zat = st.selectbox(
+    "Pilih sampel",
+    ["NaCl", "Gula", "KOH", "CuSO4"]
+)
+
+# massa random
+massa = {
+    "NaCl": 2.351,
+    "Gula": 5.124,
+    "KOH": 1.876,
+    "CuSO4": 3.442
+}
+
+if st.button("Timbang"):
+    st.session_state["massa"] = massa[zat]
+
+nilai = st.session_state.get("massa", 0.000)
+
+# ======================
+# Visualisasi
+# ======================
+
+html = f"""
+<div class="lab-container">
+
+    <div class="balance">
+        <h4>Neraca Digital</h4>
+
+        <div class="screen">
+            {nilai:.3f} g
+        </div>
+    </div>
+
+    <div class="beaker"></div>
+
+</div>
+"""
+
+st.markdown(html, unsafe_allow_html=True)
